@@ -53,15 +53,15 @@
             href="https://www.github.com/hannahlsalazar">GitHub</a>
     </p>
     <h3 class="small"> <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
-        This is my first iteration of a website for PP434. This is an exciting way to start visualising data!
+        This is my first iteration of a website for PP434. This is an exciting way to start visualising data! Charts are used from class available materials and from data from TA's from the LSE Economics Observatory.
     </h3>
 
     <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
     <section>
         <div class="chart-description">
-            <h2>Section 1: A basic chart</h2>
+            <h2>Section 1: Country GDP Per Capita</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                Here is a chart on GDP and Life expectancy. Higher GDP is associated with a higher life expectancy.
+                Below is a chart of GDP per capita of selected countries. It shows a stark difference of western vs non-western countries in terms of their GDP per capita.
             </p>
         </div>
 
@@ -72,14 +72,26 @@
 
         <section>
         <div class="chart-description">
-            <h2>Section 2: Another basic chart</h2>
+            <h2>Section 2: Real Country GDP Per Capita</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                Here is a chart on real GDP per capita.
+                Here is a chart on real GDP per capita for the same selected countries as above. The UK and the US have consistent growth, and we can see that the selected countries have had recent growth. China in particular has higher levels of growth since 2010.  .
             </p>
         </div>
 
         <!-- This element will contain our vega-lite chart -->
         <figure id="Chart2"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    
+        <section>
+        <div class="chart-description">
+            <h2>Section 3: Country Gross Debt as a % of GDP </h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                Put into some context, now we can see a country's gross dept as a % of its gdp. The US and UK as seen above, though have a higher amount of GDP per capita also have high gross debt as a % of their GDP.
+            </p>
+        </div>
+
+        <!-- This element will contain our vega-lite chart -->
+        <figure id="Chart3"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+
 
     </section>
 
@@ -107,6 +119,15 @@
         // e.g. 
         // let figure_2_spec = ...
         // vegaEmbed('#Location2', figure_2_spec)
+
+        let figure_3_spec = "https://raw.githubusercontent.com/EconomicsObservatory/datavis/refs/heads/main/newsletters/2025-07-18-the-debt-mountain/visualisation/fig1-g20-debt.json"
+        // Do you want to add more graphs?
+        // try defining a new variable for figure_2_spec, adding VegaEmbed for Location2, and adding a new section in the HTML
+        // e.g. 
+        // let figure_3_spec = ...
+        // vegaEmbed('#Location2', figure_2_spec)
+
+        vegaEmbed('#Chart3', figure_3_spec)
 
 
     </script>
