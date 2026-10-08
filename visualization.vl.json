@@ -1,0 +1,15 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/Health%20Data.csv"
+  },
+  "title": {"text": "US Health Expenditures Per Capita 2000-2021"},
+  "width": 300,
+  "height": 300,
+  "mark": {"type": "line", "color": "purple"},
+  "encoding": {
+    "x": {"field": "Date", "type": "temporal"},
+    "y": {"field": "Value", "type": "quantitative"}
+  },
+  "config": {}
+}
