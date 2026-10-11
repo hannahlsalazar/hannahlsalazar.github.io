@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Google's stock price over time.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/UK%20GDP.csv"
+  },
+  "title": {"text": "UK GDP 1942-2025"},
+  "width": 400,
+  "height": 400,
+  "mark": {"type": "line", "color": "darkmagenta", "size": 2},
+  "encoding": {
+    "x": {
+      "field": "Date",
+      "type": "temporal",
+      "axis": {"grid": false, "labelColor": "violet"}
+    },
+    "y": {
+      "field": "Value (in Million £) ",
+      "type": "quantitative",
+      "axis": {"grid": false, "labelColor": "violet"}
+    }
+  },
+  "config": {}
+}
