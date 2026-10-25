@@ -1,0 +1,16 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "U.S. Health Expenditure",
+  "data": {
+    "url": "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/Health%20Data.csv"
+  },
+  "title": {"text": "U.S. Health Expenditure"},
+  "width": 350,
+  "height": 350,
+  "mark": {"type": "line", "color": "purple", "size": 3},
+  "encoding": {
+    "x": {"field": "Date", "type": "temporal"},
+    "y": {"field": "Value", "type": "quantitative"}
+  },
+  "config": {}
+}

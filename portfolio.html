@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html> 
+    <!-- HTML is heirarchial: tags like this define elements on the page. 
+    Each tag does something different. For example:
+        - The <html> tag defines the whole document.
+        - The <h1> tag defines a large heading
+        - The <p> tag defines a paragraph
+        - Tags appear as an opening <div> and closing </div> pair
+    -->
+
+<head>    
+    <!-- The head tag links to resources our page needs and defines information about it. Tags in the <head> aren't displayed on the page. -->
+
+    <!-- This is a link to a stylesheet which contains rules about how each element on the page should be defined-->
+    <!-- Try swapping to example3.css or another, and take a look at each example.css to see if you understand it-->
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Hannah Salazar's Website</title> <!-- The title displayed in the browser tab, not on the page itself -->
+
+    <!-- This is a link to the vega-lite packages which we're using to make graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@6.4.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.3.0"></script>
+
+    <style>
+        /* CSS styles can be defined here, or in a separate CSS file */
+        #chartGrid {
+            display: flex;
+        }
+        
+    </style>
+</head>
+
+<body> 
+<!-- The body tag contains the elements that visitors to our page will see. -->
+    <h1 class="big" style="margin-bottom: 0px;"> <!-- We have added a class to the header called "big" which we can use to style it in the CSS -->
+        <!-- This is a header, it is the largest text on the page -->
+        Hannah Salazar
+    </h1>
+    <p style="margin-top: 0px; color: darkblue">
+        <!-- we're setting the margin to 0px so the header and authour name are close together -->
+        Hannah Salazar | <a href="https://www.linkedin.com/in/hannahsalazar/">LinkedIn</a> | <a
+            href="https://www.github.com/hannahlsalazar">GitHub</a>
+    </p>
+    
+    <h3 class="small"> <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
+        This is my first portfolio website for PP434. Here, I will show weekly coding practicals.
+    </h3>
+
+
+    <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
+    <section>
+        <div class="chart-description">
+            <h2>Practical 1</h2>
+
+            <h3>Section 1: Pub Meal Pricing</h3>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                Below is a depiction of how the price of a pub meal has changed over time.
+        </div>
+
+        <!-- This element will contain our vega-lite chart -->
+        <figure id="Chart1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+
+    </section>
+
+        <section>
+        <div class="chart-description">
+            <h3>Section 2: Country Unemployment</h3>
+            <p>
+                Here is a chart of unemployment levels for 3 different countries.
+            </p>
+        </div>
+
+        <figure id="Chart2"></figure>
+    
+        <section>
+        <div class="chart-description">
+            <h3>Section 3: Country GDP Growth </h3>
+            <p> 
+                Here, we can see GDP growth of selected nations within the UK.
+            </p>
+        </div>
+
+        <figure id="Chart3"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+
+    <section>
+        <div class="chart-description">
+            <h2>Practical 2</h2>
+
+            <h3>Section 1: UK GDP 1942 - 2025 </h3>
+            <p> 
+                Below is a chart of UK GDP in Million £. You can see the steady increase in GDP, with a slight dip in 2020 during the COVID-19 pandemic.
+            </p>
+        </div>
+
+         <figure id="Chart4"></figure>
+
+            <h3>Section 2: U.S. Health Expenditure 2000-2021 </h3>
+            <p>
+                Below is a chart of U.S. Health expenditures from 2000-2021.
+            <p>
+        
+         </div>
+
+          <figure id="Chart5"></figure>
+
+    <section>
+        <div class="chart-description">
+            <h2>Practical 3</h2>
+
+            <h3>Section 1: US Stock Prices </h3>
+            <p> 
+              Below is a Chart tracking US stock prices in price to earnings ratios.
+            </p>
+        </div>
+
+         <figure id="Chart6"></figure>     
+    <!-- Do you want to add more sections? -->
+        <!-- Try copying pasting the section above -->
+        <!-- You'll need to change the id of the figure "<figure id="Location2"... -->
+        <!-- ... and add a new variable for the graph spec in the script at the bottom of the page -->
+
+
+    <!-- This is a script, it's a way to run JavaScript code on the page -->
+    <script>
+        // This is a comment in JavaScript - it's a different language to HTML and CSS
+        // This is another comment.
+
+        let figure_1_spec = "chartArea3.json"; // We're storing the URL of the graph we want to display in a variable
+        // You should have a spec for a graph in this same folder. Just specify its name here, e.g. let figure_1_spec = "chart1.json"
+
+        vegaEmbed('#Chart1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
+        
+        let figure_2_spec = "chartLine4.json"; 
+
+        vegaEmbed('#Chart2', figure_2_spec)
+        // Do you want to add more graphs?
+        // try defining a new variable for figure_2_spec, adding VegaEmbed for Location2, and adding a new section in the HTML
+        // e.g. 
+        // let figure_2_spec = ...
+        // vegaEmbed('#Location2', figure_2_spec)
+
+        let figure_3_spec = "chartBar5.json"
+
+        vegaEmbed('#Chart3', figure_3_spec)
+
+        let figure_4_spec = "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/UK_GDP_Wk2.json"
+
+        vegaEmbed('#Chart4', figure_4_spec)
+
+        let figure_5_spec = "Health Data Vis.json"
+
+        vegaEmbed('#Chart5', figure_5_spec)
+
+        let figure_6_spec = "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/pe_ratio_chart.json"
+
+        vegaEmbed('#Chart6', figure_6_spec)
+
+    </script>
+
+</body>
+    
+</html>
