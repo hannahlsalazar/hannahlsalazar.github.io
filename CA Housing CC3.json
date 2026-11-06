@@ -1,0 +1,21 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "",
+  "data": {
+    "url": "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/CA%20Homeowner.csv"
+  },
+  "title": {
+    "text": "Rates of California Homeownership from 1984 - 2025",
+    "subtitle": "Source: Federal Reserve Bank of St. Louis"
+  },
+  "mark": {"type": "line", "color": "orange"},
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal"},
+    "y": {
+      "field": "Homeownership Rate",
+      "type": "quantitative",
+      "scale": {"domain": [0, 100]}
+    }
+  },
+  "config": {}
+}
