@@ -108,17 +108,28 @@
         <div class="chart-description">
             <h2>Practical 3</h2>
 
-            <h3>Section 1: US Stock Prices </h3>
-            <p> 
-              Below is a Chart tracking US stock prices in price to earnings ratios.
+            <p> For Californians, the American dream includes owning your own home. Housing shortages and affordability crises are putting that dream out of reach. 
+              
             </p>
+
+            <h3>Section 1: Rates of California Home Ownership </h3>
         </div>
 
-         <figure id="Chart6"></figure>     
-    <!-- Do you want to add more sections? -->
-        <!-- Try copying pasting the section above -->
-        <!-- You'll need to change the id of the figure "<figure id="Location2"... -->
-        <!-- ... and add a new variable for the graph spec in the script at the bottom of the page -->
+         <figure id="Chart6"></figure>
+         
+         <p> California homeownership rates have fluctuated between approximately 50% to 60%.
+
+        </div>
+
+            <h3>Section 2: California Housing Inventory </h3>
+
+        <figure id="Chart7"></figure>
+        
+        <p> Active house listening have greatly fluctuated in the last 10 years. 
+
+        </p>
+        
+        </p> Homeownership rates have remained withihn consistent levels, but housing stock greatly increased from 2022 to 2026. Californians are not buying new homes despite more homes being available. To assist new homeowners, California should provide housing assistance to first time homeowners aspiring to buy.
 
 
     <!-- This is a script, it's a way to run JavaScript code on the page -->
@@ -152,9 +163,13 @@
 
         vegaEmbed('#Chart5', figure_5_spec)
 
-        let figure_6_spec = "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/pe_ratio_chart.json"
+        let figure_6_spec = "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/CA%20Housing%20CC3.json"
 
         vegaEmbed('#Chart6', figure_6_spec)
+
+        let figure_7_spec = "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/CA%20House%20Lists%20CC3.json"
+
+        vegaEmbed('#Chart7', figure_7_spec)
 
     </script>
 
