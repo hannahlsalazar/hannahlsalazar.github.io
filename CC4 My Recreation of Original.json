@@ -1,0 +1,149 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": [
+      "About One in Five Uninsured Adults Ages 18-64 with",
+      "Multiple Health Conditions Say They Usually Go to the Emergency",
+      "Room or Have No Usual Place for Care When They Are Sick"
+    ],
+    "subtitle": [
+      "Today, what kind of place, if any, do you usually call or go to when you are",
+      "sick or when you need advice about your health?"
+    ]
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/CC4%20Excel%20Data.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "Private Doctors Office",
+        "Neighborhood Clinic/Health Center",
+        "Urgent Care",
+        "Retail Clinic/Student Clinic/Some Other Place",
+        "Emergency Room/Does Not Have A Place"
+      ],
+      "as": ["place", "percent"]
+    },
+    {
+      "calculate": "indexof(['Private Doctors Office','Neighborhood Clinic/Health Center','Urgent Care','Retail Clinic/Student Clinic/Some Other Place','Emergency Room/Does Not Have A Place'], datum.place)",
+      "as": "order"
+    },
+    {
+      "stack": "percent",
+      "groupby": ["Condition", "Insurance"],
+      "sort": [{"field": "order", "order": "ascending"}],
+      "offset": "zero",
+      "as": ["start", "end"]
+    },
+    {"calculate": "(datum.start + datum.end) / 2", "as": "mid"}
+  ],
+  "facet": {
+    "row": {
+      "field": "Condition",
+      "type": "nominal",
+      "title": null,
+      "header": {"labels": false}
+    }
+  },
+  "spacing": 50,
+  "bounds": "flush",
+  "spec": {
+    "width": 350,
+    "height": {"step": 20},
+    "layer": [
+      {
+        "mark": {"type": "bar", "stroke": "white", "strokeWidth": 2},
+        "encoding": {
+          "x": {"field": "start", "type": "quantitative", "axis": null},
+          "x2": {"field": "end"},
+          "y": {
+            "field": "Insurance",
+            "type": "nominal",
+            "title": null,
+            "sort": ["Uninsured adults 18-64", "Insured adults 18-64"],
+            "axis": {
+              "labelFontSize": 13,
+              "domain": false,
+              "ticks": false,
+              "labelLimit": 200,
+              "labelAlign": "left",
+              "labelPadding": 145
+            }
+          },
+          "color": {
+            "field": "place",
+            "type": "nominal",
+            "title": null,
+            "sort": {"field": "order"},
+            "scale": {
+              "domain": [
+                "Private Doctors Office",
+                "Neighborhood Clinic/Health Center",
+                "Urgent Care",
+                "Retail Clinic/Student Clinic/Some Other Place",
+                "Emergency Room/Does Not Have A Place"
+              ],
+              "range": ["#001f3a", "#034e8c", "#1c82d8", "#1b7a68", "#00b588"]
+            },
+            "legend": {
+              "legendX": -145,
+              "legendY": -75,
+              "direction": "horizontal",
+              "orient": "none",
+              "columns": 2,
+              "labelFontSize": 12,
+              "labelLimit": 320,
+              "symbolType": "square"
+            }
+          },
+          "tooltip": [
+            {"field": "Insurance", "title": "Group"},
+            {"field": "place", "title": "Place of care"},
+            {"field": "percent", "title": "Percent"}
+          ]
+        }
+      },
+      {
+        "transform": [{"filter": "datum.percent >= 9"}],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dx": 8,
+          "color": "white",
+          "fontWeight": "bold",
+          "fontSize": 13
+        },
+        "encoding": {
+          "x": {"field": "start", "type": "quantitative"},
+          "y": {
+            "field": "Insurance",
+            "type": "nominal",
+            "sort": ["Uninsured adults 18-64", "Insured adults 18-64"]
+          },
+          "text": {"field": "percent", "type": "quantitative", "format": ".0f"}
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.order == 0 && datum.Insurance == 'Uninsured adults 18-64'"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "bottom",
+          "fontSize": 12,
+          "fontWeight": "bold"
+        },
+        "encoding": {
+          "x": {"value": -145},
+          "y": {"value": -8},
+          "text": {"field": "Condition"}
+        }
+      }
+    ]
+  },
+  "config": {"view": {"stroke": null}}
+}
