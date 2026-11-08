@@ -131,6 +131,31 @@
         
         </p> Homeownership rates have remained withihn consistent levels, but housing stock greatly increased from 2022 to 2026. Californians are not buying new homes despite more homes being available. To assist new homeowners, California should provide housing assistance to first time homeowners aspiring to buy.
 
+    <section>
+        <div class="chart-description">
+
+            <h2>Practical 4</h2>
+
+            <h3> Original Chart
+               
+                <p> This is a chart originally published on KFF on where adults seek care when they are sick.
+
+                <img src="CC4_Original_Chart.png"
+            
+            </div>
+            
+            <h3> My Recreation of the Chart
+
+                <p> Below is my recreation of the chart using Vega-lite
+                
+                <figure id="Chart9"></figure>
+
+            </div>
+
+            <h3> My Improvement
+                <p> Below is my improvement of the chart using Vega-lite. I simplified the chart title and subtitle, added percentages to each bar, increased spacing for clarity, and made each bar even. I also made all the colors the same to make it easier to read.
+                
+                <figure id="Chart10"></figure>
 
     <!-- This is a script, it's a way to run JavaScript code on the page -->
     <script>
@@ -171,6 +196,14 @@
 
         vegaEmbed('#Chart7', figure_7_spec)
 
+        let figure_9_spec = "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/CC4%20My%20Recreation%20of%20Original.json"
+
+        vegaEmbed('#Chart9', figure_9_spec)
+
+        let figure_10_spec = "https://raw.githubusercontent.com/hannahlsalazar/hannahlsalazar.github.io/refs/heads/main/CC4_My_Improvement.json"
+
+        vegaEmbed('#Chart10', figure_10_spec)
+        
     </script>
 
 </body>
